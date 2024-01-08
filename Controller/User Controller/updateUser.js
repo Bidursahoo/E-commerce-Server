@@ -10,7 +10,7 @@ const updateUser = async (req, res) => {
       const user = await User.findOneAndUpdate({email:req.header("email")}, {$set:req.body},{new:true}).select("-password-__v")
       res.status(200).send({ status:"Success", data: user });
     } catch (error) {
-      console.error("Error:", error);
+    //   console.error("Error:", error);
       res.status(500).send({ message: "An error occurred while updating users." });
     }
   };
