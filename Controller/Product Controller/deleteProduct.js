@@ -10,7 +10,6 @@ const deleteProduct = async (req, res) => {
       const product = await Product.findOneAndDelete({_id:req.params['id']}).select("-productPicture-__v")
       res.status(200).send({ status:"Success", data: product });
     } catch (error) {
-    //   console.error("Error:", error);
       res.status(500).send({ message: "An error occurred while updating product." });
     }
   };
